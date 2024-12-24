@@ -133,14 +133,14 @@ void MX_GPIO_Init(void)
  800027e:	687b      	ldr	r3, [r7, #4]
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_G_GPIO_Port, LED_G_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_B_GPIO_Port, LED_B_Pin, GPIO_PIN_RESET);
  8000280:	2200      	movs	r2, #0
  8000282:	f44f 5100 	mov.w	r1, #8192	@ 0x2000
  8000286:	4816      	ldr	r0, [pc, #88]	@ (80002e0 <MX_GPIO_Init+0xbc>)
  8000288:	f000 fc48 	bl	8000b1c <HAL_GPIO_WritePin>
 
   /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = LED_G_Pin;
+  GPIO_InitStruct.Pin = LED_B_Pin;
  800028c:	f44f 5300 	mov.w	r3, #8192	@ 0x2000
  8000290:	613b      	str	r3, [r7, #16]
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -152,7 +152,7 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
  800029a:	2302      	movs	r3, #2
  800029c:	61fb      	str	r3, [r7, #28]
-  HAL_GPIO_Init(LED_G_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(LED_B_GPIO_Port, &GPIO_InitStruct);
  800029e:	f107 0310 	add.w	r3, r7, #16
  80002a2:	4619      	mov	r1, r3
  80002a4:	480e      	ldr	r0, [pc, #56]	@ (80002e0 <MX_GPIO_Init+0xbc>)
@@ -229,14 +229,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	HAL_GPIO_TogglePin(LED_G_GPIO_Port, LED_G_Pin);
+	HAL_GPIO_TogglePin(LED_B_GPIO_Port, LED_B_Pin);
  80002f8:	f44f 5100 	mov.w	r1, #8192	@ 0x2000
  80002fc:	4803      	ldr	r0, [pc, #12]	@ (800030c <main+0x24>)
  80002fe:	f000 fc25 	bl	8000b4c <HAL_GPIO_TogglePin>
 	HAL_Delay(200);
  8000302:	20c8      	movs	r0, #200	@ 0xc8
  8000304:	f000 f944 	bl	8000590 <HAL_Delay>
-	HAL_GPIO_TogglePin(LED_G_GPIO_Port, LED_G_Pin);
+	HAL_GPIO_TogglePin(LED_B_GPIO_Port, LED_B_Pin);
  8000308:	bf00      	nop
  800030a:	e7f5      	b.n	80002f8 <main+0x10>
  800030c:	40011000 	.word	0x40011000
